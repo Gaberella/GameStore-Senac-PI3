@@ -1,0 +1,15 @@
+com\senac\pi3\Servlets\ExcluirClienteServlet.class
+com\senac\pi3\Modelos\Funcionario.class
+com\senac\pi3\Modelos\Cliente.class
+com\senac\pi3\DAOs\FuncionarioDAO.class
+com\senac\pi3\gamestore\resources\JavaEE8Resource.class
+com\senac\pi3\BLL\ClienteBLL.class
+com\senac\pi3\DAOs\ClienteDAO.class
+com\senac\pi3\Modelos\Produto.class
+com\senac\pi3\Utils\UsuarioSistemaService.class
+com\senac\pi3\Utils\ConnectionUtils.class
+com\senac\pi3\Servlets\AlterarClienteServlet.class
+com\senac\pi3\gamestore\JAXRSConfiguration.class
+com\senac\pi3\Servlets\ClienteServlet.class
+com\senac\pi3\Modelos\Usuario.class
+com\senac\pi3\Servlets\ListaClienteServlet.class
