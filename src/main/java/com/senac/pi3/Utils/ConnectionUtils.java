@@ -30,7 +30,7 @@ public class ConnectionUtils
         
         String dbURL = "jdbc:mysql://root@localhost:3306/gamestore";
         
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         
         Properties properties = new Properties();
         properties.put("user", "root");

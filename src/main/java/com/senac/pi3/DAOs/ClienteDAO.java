@@ -71,8 +71,7 @@ public class ClienteDAO
     
     public static void alterar(Cliente c) throws SQLException, ClassNotFoundException
     {
-        String sql = "UPDATE cliente SET cpf = ?, nome = ?, dataNascimento = ?, sexo = ?"
-                + ", rg = ?, email = ? , endereco = ? , senha = ?, WHERE id_cliente = ?";
+        String sql = "UPDATE cliente SET cpf = ?, nome = ?, dataNascimento = ?, sexo = ?, rg = ?, email = ? , endereco = ? , senha = ? WHERE id_cliente = ?";
         
         Connection conn = null;
         PreparedStatement pst = null;
@@ -85,20 +84,18 @@ public class ClienteDAO
             conn = ConnectionUtils.getConnection();
             pst = conn.prepareStatement(sql);
             
-            pst.setString(1, c.getNome());
-            pst.setString(2, c.getCpf());
-            
+            pst.setString(1, c.getCpf());
+            pst.setString(2, c.getNome());
+
             Timestamp t = new Timestamp(c.getDataNascimento().getTime());
             pst.setTimestamp(3, t);
             
-            pst.setString(4, c.getTelefone());
-            pst.setString(5, c.getEmail());
-            pst.setString(6, c.getSexo() + "");
-            pst.setString(7, c.getRg());
-            pst.setString(8, c.getEndereco());
-            pst.setString(9, c.getSenha());
-            pst.setInt(10, c.getId());
-            
+            pst.setString(4, c.getSexo() + "");
+            pst.setString(5, c.getRg());
+            pst.setString(6, c.getEmail());
+            pst.setString(7, c.getEndereco());
+            pst.setString(8, c.getSenha());
+            pst.setInt(9, c.getId());
             
             pst.execute();
 
@@ -238,9 +235,9 @@ public class ClienteDAO
                 Cliente c = new Cliente();
                 
                 
-                c.setId(rs.getInt("idUsuario"));
+                c.setId(rs.getInt("id_cliente"));
                 c.setNome(rs.getString("Nome"));
-                c.setDataNascimento(rs.getDate("Data nascimento"));
+                c.setDataNascimento(rs.getDate("dataNascimento"));
                 c.setCpf(rs.getString("CPF"));
                 c.setRg(rs.getString("RG"));
                 c.setTelefone(rs.getString("telefone"));
