@@ -4,12 +4,11 @@ package com.senac.pi3.Servlets;
 import com.senac.pi3.BLL.ClienteBLL;
 import com.senac.pi3.Modelos.Cliente;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,10 +45,8 @@ public class AlterarClienteServlet extends HttpServlet
         request.setAttribute("manutencao", manutencao);
         request.setAttribute("clientes", clientes);
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/cliente.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("cliente.jsp");
         dispatcher.forward(request, response);
-        
-        
     }
     
     @Override
@@ -66,8 +63,16 @@ public class AlterarClienteServlet extends HttpServlet
             //É feito o armazenamento dos dados que foram preenchidos no formulário, da mesma forma que foi feito no servlet ClienteServlet
             c.setNome(request.getParameter("nome"));
             
+            //Criando um formatador de Data para que seja aceita somente data inserida no padrão utilizado por nós.
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            c.setDataNascimento(sdf.parse(request.getParameter("datanascimento")));
+            try 
+            {
+                //Para armazenar a data, foi necessário realizar um parse() pois tudo que é pego pelo método request.getParameter() é uma String.
+                c.setDataNascimento(sdf.parse(request.getParameter("dtnascimento")));
+            } catch (ParseException ex) 
+            {
+
+            }
             
             c.setCpf(request.getParameter("cpf"));
             c.setSexo(request.getParameter("sexo").charAt(0));
@@ -89,6 +94,9 @@ public class AlterarClienteServlet extends HttpServlet
         
             ClienteBLL.alterar(c);
         
+            
+            
+            response.sendRedirect(request.getContextPath() + "/ClienteServlet");
     }catch (Exception e) 
     {
       e.printStackTrace();
