@@ -87,9 +87,13 @@ h3{
     line-height:100px
 }
 h5{
+    text-indent: 300px;
+    color:red;
+    position: relative;
+    top: 150px;
     font-size: 20px;
-    top: 30px;
-    
+    line-height:100px;
+    left: -150px;
 }
 h6{
     position:relative;
@@ -156,4 +160,38 @@ div.justify {
 	justify-content: center;
 	align-items: center;
 	flex-grow: 1;
+    
+}
+.space60{
+	text-decoration: none
+	}
+.space60{
+	text-decoration: underline;
+	color: #f00
+	}
+.space60{
+	text-decoration: none
+	}
+
+.ad{
+    text-indent: 300px;
+    color:red;
+    float:100px;
+    position: relative;
+    top: -100px;
+    font-size: 20px;
+    line-height:100px
+}
+
+.pag{
+    text-indent: 300px;
+    color:white;
+    float:left;
+    font-size: 20px;
+    line-height:100px
+}
+
+.testg {
+    background-image:url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fnvidiastore.com.br%2Fplaca-de-video-nvidia-titan-rtx&psig=AOvVaw02NJYGuIt7-z96uqJjYPI1&ust=1636041151844000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjtqa_G_PMCFQAAAAAdAAAAABAD");
+    position: relative;
 }

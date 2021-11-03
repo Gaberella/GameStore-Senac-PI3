@@ -251,3 +251,14 @@ a.article, a.article:hover {
         display: none;
     }
 }
+
+.space60 {
+	text-decoration: none
+	}
+    .space60 {
+	text-decoration: underline;
+	color: #f00
+	}
+    .space60 {
+	text-decoration: none
+	}

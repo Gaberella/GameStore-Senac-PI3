@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
 
 
     <title>GAMERS STORE</title>
@@ -11,13 +11,13 @@
 <body>
     <header>
         <div class="justify">
-            <span class="space30"></span> <img src="Imagens/Logo.png" width="200"  alt="Logo">            
+            <span class="space30"></span> <img src="assets/images/Logo_1.png" width="200"  alt="Logo">            
             <span class="space30"></span> <a href="Index.html" id="meulink" style=" color:white">Categorias</a>
             <span class="space60"></span> <a href="Lancamento.html" id="meulink" style="color:white">Lançamentos</a>
             <span class="space60"></span> <a href="Destaques.html" id="meulink" style=" color:white">Destaques</a>
             <span class="space60"></span> <a href="Suporte.html" id="meulink" style=" color:white">Suporte</a>
-
-            <span class="space60"></span><input type="button" value="Digite o que você procura..." style="width: 300px; height: 30px; border-radius: 7px; background-color:#2c2c2c; color:white; border-color:white">
+            
+            <span class="space60"></span><input type="button" value="Digite o que você procura..." style="width: 300px; height: 30px; border-radius: 7px; background-color:#2c2c2c; color:white">
             <span class="space60"></span><input type="button" value="Entrar" style="width: 100px; height: 30px; border-radius: 7px; background-color:#2c2c2c; color:white; border-color:white" >
             <span class="space30"></span><input type="button" value="Registrar-se" style="width: 100px; height: 30px; border-radius: 7px; background-color:#2c2c2c; color:white; border-color:white">
         </div>
@@ -35,15 +35,23 @@
     <h3>PÉRIFERICOS</h3>
     <h3>TV</h3>
     <h3>COMPUTADORES</h3>
-     
+
+
     
+    <div class="mp">
+    <h5>MAIS PROCURADOS</h5>
+    </div>
+    <input type="button" value="PROPAGANDA" style="width: 250px; height: 100px; border-radius: 7px; background-color:#2c2c2c;color:white; border-color:white; position: relative;left: 225px; top: -85px;">
+    <input type="button" value="PROPAGANDA" style="width: 250px; height: 100px; border-radius: 7px; background-color:#2c2c2c;color:white; border-color:white; position: relative;left: 575px; top: -75px;">
+    <input type="button" value="PROPAGANDA" style="width: 250px; height: 100px; border-radius: 7px; background-color:#2c2c2c;color:white; border-color:white; position: relative;left: 700px; top: -75px;">
+
     <script>
 
      const items = [
       {
           id: 0,
           nome: '',
-          img: 'playstation.png',
+          img: 'assets/images/playstation5.png',
           quantidade: 0
       },
       
@@ -53,7 +61,7 @@
           
           id: 1,
           nome: '',
-          img: 'xbox.png',
+          img: 'assets/images/xbox.png',
           quantidade: 0
           
       },
@@ -61,7 +69,15 @@
           
           id: 2,
           nome: '',
-          img: '    computador1.png',
+          img: 'assets/images/1.png',
+          quantidade: 0,
+      },
+      ]
+      const itens = [
+      { 
+          id: 3,
+          nome: '',
+          img: 'assets/images/1.png',
           quantidade: 0,
       },
      ]
@@ -111,5 +127,7 @@
 
 
     </script>
+
+
 </body>
 </html>
