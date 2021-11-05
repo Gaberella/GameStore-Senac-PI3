@@ -76,7 +76,7 @@
                                 <input type="text" class="form-control" id="email" name="email" value="${venda.idProduto}">
                             </div>
                         </div>
-
+                        
                         <div class="form-row">
                             <div class="form-group col-md-4">
                             </div>

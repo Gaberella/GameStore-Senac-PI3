@@ -21,8 +21,7 @@ import java.util.List;
 public class VendasDAO {
     
     public static void realizarVenda(Venda venda) throws SQLException, Exception {
-        String insertTableSQL = "INSERT INTO venda(nome, endereco, email, "
-                + "dataVenda, valorVenda, tipoPagamento) VALUES" + "(?,?,?,?,?,?);";
+        String insertTableSQL = "INSERT INTO venda(dataVenda, nome, tipoPagamento, email ,valorVenda, endereco ) VALUES" + "(?,?,?,?,?,?);";
         Connection conn = null;
         PreparedStatement pst = null;  
         
@@ -38,7 +37,7 @@ public class VendasDAO {
             //pst.setDouble(6, venda.getIdProduto());
             //pst.setInt(7, venda.getIdFilial());
             pst.setString(6, venda.getEndereco());
-            pst.executeUpdate();
+            pst.execute();
             
         } catch (SQLException e) {
             

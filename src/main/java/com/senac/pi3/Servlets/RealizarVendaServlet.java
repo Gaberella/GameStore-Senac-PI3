@@ -81,6 +81,7 @@ public class RealizarVendaServlet extends HttpServlet {
         
         try {
             VendaBLL.inserir(venda);
+            vendas = VendaBLL.listar();
         } catch (Exception e) {
         }
         
