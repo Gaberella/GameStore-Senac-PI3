@@ -15,9 +15,10 @@ public class Produto
     
     private int idProduto;
     private String nomeProduto;
+    private int categoria;
     private BigDecimal preco;
     private String fabricante;
-    private int quantidade;
+    private int estoque;
     private String modelo;
     private String codBarras;
     //private Filial filal;
@@ -27,70 +28,93 @@ public class Produto
         
     }
    
-    public Produto(String nomeProduto, BigDecimal preco, String fabricante, int quantidade, String modelo, String codBarras)
+    public Produto(String nomeProduto, int categoria,BigDecimal preco, String fabricante, int estoque, String modelo, String codBarras)
     {
         this.nomeProduto = nomeProduto;
+        this.categoria = categoria;
         this.preco = preco;
         this.fabricante = fabricante;
-        this.quantidade = quantidade;
+        this.estoque = estoque;
         this.modelo = modelo;
         this.codBarras = codBarras; 
-    }
+    }  
     
     
-    public int getIdProduto() {
+    public int getIdProduto() 
+    {
         return idProduto;
     }
 
-    public void setIdProduto(int idProduto) {
+    public void setIdProduto(int idProduto) 
+    {
         this.idProduto = idProduto;
     }
 
-    public String getNomeProduto() {
+    public String getNomeProduto() 
+    {
         return nomeProduto;
     }
 
-    public void setNomeProduto(String nomeProduto) {
+    public void setNomeProduto(String nomeProduto) 
+    {
         this.nomeProduto = nomeProduto;
     }
+    public int getCategoria() 
+    {
+        return categoria;
+    }
 
-    public BigDecimal getPreco() {
+    public void setCategoria(int categoria) 
+    {
+        this.categoria = categoria;
+    }
+    public BigDecimal getPreco() 
+    {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(BigDecimal preco) 
+    {
         this.preco = preco;
     }
 
-    public String getFabricante() {
+    public String getFabricante() 
+    {
         return fabricante;
     }
 
-    public void setFabricante(String fabricante) {
+    public void setFabricante(String fabricante) 
+    {
         this.fabricante = fabricante;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public int getEstoque() 
+    {
+        return estoque;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setEstoque(int quantidade) 
+    {
+        this.estoque = quantidade;
     }
 
-    public String getModelo() {
+    public String getModelo() 
+    {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(String modelo) 
+    {
         this.modelo = modelo;
     }
 
-    public String getCodBarras() {
+    public String getCodBarras() 
+    {
         return codBarras;
     }
 
-    public void setCodBarras(String codBarras) {
+    public void setCodBarras(String codBarras) 
+    {
         this.codBarras = codBarras;
     }
 }

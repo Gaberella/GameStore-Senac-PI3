@@ -69,19 +69,7 @@
                                 <input type="text" class="form-control" id="rg" name="rg" value="${cliente.rg}">
                             </div>
 
-                            <div class="form-group col-md-6">
-                                <label for="inputState">Tipo Acesso</label>
-                                <select id="inputState" class="form-control" name="tipoacesso" value="${cliente.tipoAcesso}">
-                                    <option selected>Selecione...</option>
-                                    <option value="1" <c:if test="${cliente.tipoAcesso == 1}">selected</c:if>>Cliente</option>
-                                    <option value="2" <c:if test="${cliente.tipoAcesso == 2}">selected</c:if>>Funcionario filial</option>
-                                    <option value="3" <c:if test="${cliente.tipoAcesso == 3}">selected</c:if>>Gerente filial</option>
-                                    <option value="4" <c:if test="${cliente.tipoAcesso == 4}">selected</c:if>>Gerente geral</option>
-                                    <option value="5" <c:if test="${cliente.tipoAcesso == 5}">selected</c:if>>TI</option>
-                                    <option value="6" <c:if test="${cliente.tipoAcesso == 6}">selected</c:if>>Backoffice</option>
-                                    <option value="7" <c:if test="${cliente.tipoAcesso == 7}">selected</c:if>>RH</option>
-                                </select>
-                            </div>
+                            z
 
                         </div>
 
