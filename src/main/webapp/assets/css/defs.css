@@ -1,0 +1,159 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31/10/2021, 17:12:23
+    Author     : thiag
+*/
+*{
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#produtos{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2%;
+    display: flex;
+    flex-wrap: wrap;
+}
+#carrinho{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2%;
+    display: block;
+}
+.produto-single{
+    width: 32%;
+    margin-right: 1%;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.produto-single img{
+max-width: 100%;
+}
+
+.produto-single p{
+text-align: center;
+font-size: 16px;
+padding: 10px;
+}
+.produto-single a{
+text-decoration: none;
+color: white;
+background-color: #4c3282;
+text-align: center;
+display: block;
+padding: 3px 0;
+font-size: 17px;
+}
+h2{
+    text-indent: 350px;
+    right: 50px; 
+    top: 50px;
+    padding: 5px;
+    text-indent: 50px;
+    color: white;
+    font-size: 20px;
+}
+h1{
+    padding: 20px 0;
+    text-indent: 20px;
+    color: white;
+    font-size: 15px;
+    }
+.info-single-checkout{
+    border-bottom: 2px dotted;
+    padding: 10px 0;
+}
+@media screen and (max-width: 768px){
+.produto-single{
+    width: 50%;
+float:left;
+    margin-right: 0;
+}
+}
+
+h3{
+    text-indent: 300px;
+    color:red;
+    float:left;
+    font-size: 20px;
+    line-height:100px
+}
+h5{
+    font-size: 20px;
+    top: 30px;
+    
+}
+h6{
+    position:relative;
+    text-align: 100px;
+    color:red;
+    font-size: 20px;
+    top: 150px;
+    left: 150px;
+    text-indent: 150px;
+}
+h1{
+    text-indent: 100px;
+    color:red;
+    float:left;
+    font-size: 20px;
+    line-height:10px;
+}
+body {
+    background-color: #2c2c2c;
+    }
+
+p {
+    left: 50px;
+    color: white;
+    font-size: 20px;
+    line-height:50px;
+    text-indent: 100px;
+    }
+#texto{
+position: relative;
+float: center;
+margin-top: 15px;
+background-color: #2c2c2c;
+margin-bottom: 1px;
+    }
+#carrinho{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2%;
+    display: block;
+}
+span.space10 {
+    display: inline-block;
+    width: 10px;
+}
+
+span.space20 {
+    display: inline-block;
+    width: 20px;
+}
+span.space30 {
+    display: inline-block;
+    width: 30px;
+}
+span.space60 {
+    display: inline-block;
+    width: 60px;
+}
+div.center {
+    text-align: center
+}
+div.justify {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+}
