@@ -18,12 +18,13 @@ import lombok.Setter;
 @Setter
 public class Venda {
     
+    private String nome;
+    private String endereco;
+    private String email;
+    private Date  dataVenda;
+    private BigDecimal  valorVenda;
+    private String  tipoPagamento;
     private int idVenda;
-    private Date  data;
-    private String  nomeComprador;
-    private String  cartaoComprador;
-    private String  codSegurancaComprador;
-    private BigDecimal  valor;
     private int idProduto;
     private int idFilial;
 
@@ -40,8 +41,10 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "Venda{" + "idVenda=" + idVenda + ", data=" + data + ", nomeComprador=" + nomeComprador + ", cartaoComprador=" + cartaoComprador + ", codSegurancaComprador=" + codSegurancaComprador + ", valor=" + valor + ", idProduto=" + idProduto + ", idFilial=" + idFilial + '}';
+        return "Venda{" + "nome=" + nome + ", endereco=" + endereco + ", email=" + email + ", dataVenda=" + dataVenda + ", valorVenda=" + valorVenda + ", tipoPagamento=" + tipoPagamento + ", idVenda=" + idVenda + ", idProduto=" + idProduto + ", idFilial=" + idFilial + '}';
     }
+
+    
 
     
     
