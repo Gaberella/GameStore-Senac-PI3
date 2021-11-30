@@ -6,16 +6,14 @@ package com.senac.pi3.Modelos;
 
 import java.util.Date;
 
-public class Funcionario extends Cliente
-       
-{
-    public Funcionario()
-    {
-        
+public class Funcionario extends Usuario{
+
+    public Funcionario() {
     }
-    public Funcionario(int id, String nome, Date dataNascimento, String cpf, String rg, char sexo, String telefone, String email, String endereco, String senha)
-    {
-         super(id, nome, dataNascimento, cpf, rg, sexo, telefone,email,endereco,senha);
+
+    public Funcionario(int id, String nome, Date dtNascimento, String cpf, String rg, String telefone, String email, String endereco, String senha, int tipoAcesso, char sexo, Filial filial) {
+        super(id, nome, dtNascimento, cpf, rg, telefone, email, endereco, senha, tipoAcesso, sexo, filial);
     }
+    
 }
 

@@ -20,41 +20,34 @@ import javax.servlet.http.HttpServletResponse;
  * @author Gabri
  */
 @WebServlet(name = "ExcluirClienteServlet", urlPatterns = {"/ExcluirClienteServlet"})
-public class ExcluirClienteServlet extends HttpServlet 
-{
+public class ExcluirClienteServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
-    {
-        //response.setContentType("text/html;charset=UTF-8");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    
+        //Na hora da listagem dos clientes, caso o usuário pressione o link 'Excluir', o processamento será enviado
+        //para esse método.
+        
+        //Primeiro devemos armazenar o ID do cliente que desejamos remover para que seja utilizado na consulta SQL.
         int id = Integer.parseInt(request.getParameter("id"));
         
-        try 
-        {
+        try{
+            //Com o ID correto armazenado, o método excluir() é chamado para que seja feita a exclusão desse cliente.
             ClienteBLL.excluir(id);
-        } catch (Exception e) 
-        {
-            e.printStackTrace();
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
         }
         
-        
+        //Quando a exclusão é finalizada, o usuário será redirecionado para a página de cadastro.
         RequestDispatcher dispatcher = request.getRequestDispatcher("/ClienteServlet");
         dispatcher.forward(request, response);
     }
 
-  
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-    {
-      
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    
     }
 }

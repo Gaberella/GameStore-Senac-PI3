@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Game Store - Clientes</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png">
+                <strong></strong>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p style="text-align: center; color: white">Nome do Funcionário</p>
+
+                <li >
+                        <a href="../VendaServlet" >
+                            <i class="glyphicon glyphicon-shopping-cart"></i>
+                            Vendas
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="../ProdutoServlet" >
+                            <i class="glyphicon glyphicon-list-alt"></i>
+                            Produtos
+                        </a>
+                    </li>
+    
+                    <li class="active" >
+                        <a href="../ClienteServlet" >
+                            <i class="glyphicon glyphicon-user"></i>
+                            Usuário
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="../RelatoriosServlet">
+                            <i class="glyphicon glyphicon-stats"></i>
+                            Relatórios
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                            Sair
+                        </a>
+                    </li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <nav class="navbar navbar-default">
+                    <div style="font-size: 20px; text-align: center;">Gerenciar Clientes</div>
+                </nav>
+
+                <div style="margin-bottom: 15px;">
+                    <button type="button" class="btn btn-secondary btn-lg" id="liberacadastro">Cadastro</button>
+                    <button type="button" class="btn btn-secondary btn-lg" id="liberapesquisa">Pesquisar</button>
+                </div>
+
+            <div id="cadastro">
+               
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <label for="servico">Nome</label>
+                            <input type="text" class="form-control" id="servico" >
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="calendario">Data de Nascimento</label>
+                            <input type="text" class="form-control" id="calendario" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="servico">CPF</label>
+                            <input type="text" class="form-control" id="servico" >
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputState">Sexo</label>
+                              <select id="inputState" class="form-control">
+                                <option selected>Selecione...</option>
+                                <option value="0">Masculino</option>
+                                <option value="1">Feminino</option>
+                              </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        
+                        <div class="form-group col-md-6">
+                            <label for="servico">RG</label>
+                            <input type="text" class="form-control" id="servico" >
+                        </div>
+
+                        <div class="form-group col-md-6" style="min-height: 59px;">
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="servico">Telefone</label>
+                            <input type="text" class="form-control" id="servico" >
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="servico">Email</label>
+                            <input type="text" class="form-control" id="servico" >
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                        </div>
+                        <div class="form-group col-md-4 text-center">
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Cadastrar</button>
+                        </div>
+                        <div class="form-group col-md-4">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="pesquisa" style="display: none">
+
+                <table class="table" id="tabelaservicos">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nome</th>
+                      <th scope="col">CPF</th>
+                      <th scope="col">RG</th>
+                      <th scope="col">Telefone</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Editar</th>
+                      <th scope="col">Excluir</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td scope="row">Joãozinho</th>
+                    <td>02578546987</td>
+                    <td>894659740</td>
+                    <td>(11) 9 7565-7462</td>
+                    <td>joaozinho@hotmail.com</td>
+                    <td><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></td>
+                    <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                </tr>
+               
+          </tbody>
+      </table>
+
+
+  </div>
+        </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+
+
+<script type="text/javascript">
+    $(document).ready( function () {
+        $( "#calendario" ).datepicker();
+
+        $('#tabelaservicos').DataTable( {
+            "language": {
+                "lengthMenu": "Mostrando _MENU_ resultados por página",
+                "zeroRecords": "Nada encontrado - desculpe.",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "Não há dados para mostrar",
+                "infoFiltered": "(filtrado no total de _MAX_ resultados)",
+                "search": "Procurar: ",
+                "paginate": {
+                "first":      "Primeiro",
+                "last":       "Último",
+                "next":       "Próximo",
+                "previous":   "Anterior"
+            },
+            }
+        } );
+    } );
+
+    $("#liberacadastro").on("click", function() {
+        $("#cadastro").show();
+        $("#pesquisa").hide();
+    });
+
+    $("#liberapesquisa").on("click", function() {
+        $("#cadastro").hide();
+        $("#pesquisa").show();
+    });
+</script>
+</body>
+</html>

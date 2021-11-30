@@ -5,8 +5,8 @@
  */
 package com.senac.pi3.Modelos;
 
-import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,31 +18,24 @@ import lombok.Setter;
 @Setter
 public class Venda {
     
-    private String nome;
-    private String endereco;
-    private String email;
-    private Date  dataVenda;
-    private BigDecimal  valorVenda;
-    private String  tipoPagamento;
-    private int idVenda;
-    private int idProduto;
-    private int idFilial;
+    private Cliente cliente;
+    private Usuario funcionario;
+    private List<Produto> produtos;
+    private Float valorTotal;
+    private Date data;
 
-    /*public Venda(int idVenda, Date data, String nomeComprador, String cartaoComprador, String codSegurancaComprador, Double valor, int idProduto, int idFilial) {
-        this.idVenda = idVenda;
-        this.data = data;
-        this.nomeComprador = nomeComprador;
-        this.cartaoComprador = cartaoComprador;
-        this.codSegurancaComprador = codSegurancaComprador;
-        this.valor = valor;
-        this.idProduto = idProduto;
-        this.idFilial = idFilial;
-    }*/
+   public Venda()
+   {
 
-    @Override
-    public String toString() {
-        return "Venda{" + "nome=" + nome + ", endereco=" + endereco + ", email=" + email + ", dataVenda=" + dataVenda + ", valorVenda=" + valorVenda + ", tipoPagamento=" + tipoPagamento + ", idVenda=" + idVenda + ", idProduto=" + idProduto + ", idFilial=" + idFilial + '}';
-    }
+   } 
+
+   public Venda(Cliente cliente,List<Produto> produtos, Funcionario funcionario, Float valorTotal, Date data)
+   {
+       this.cliente = cliente;
+       this.produtos = produtos;
+       this.valorTotal = valorTotal;
+       this.data = data;
+   }
 
     
 

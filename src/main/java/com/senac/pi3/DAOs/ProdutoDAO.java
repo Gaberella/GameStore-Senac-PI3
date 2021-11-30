@@ -1,5 +1,6 @@
 package com.senac.pi3.DAOs;
 
+import com.senac.pi3.Modelos.Filial;
 import com.senac.pi3.Modelos.Produto;
 import com.senac.pi3.Utils.ConnectionUtils;
 import java.sql.Connection;
@@ -10,213 +11,185 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProdutoDAO {
-
-    public static void inserir(Produto p) throws SQLException, Exception 
-    {
-        String sql = "INSERT INTO produto(nomeProduto,categoria,preco,fabricante,estoque,modelo,codBarras)" + "VALUES(?,?,?,?,?,?,?)";
-
+    public static void inserir(Produto p) throws SQLException, Exception{
+        String sql = "INSERT INTO produto (nome, preco, fabricante, estoque, modelo, codigodebarras, idFilial) " +
+                     " VALUES (?, ?, ?, ?, ?, ?, ?);";
+        
         Connection conn = null;
         PreparedStatement pst = null;
-
-        try 
-        {
-            conn = ConnectionUtils.getConnection();
-            pst = conn.prepareStatement(sql);
-
-            pst.setString(1, p.getNomeProduto());
-            pst.setInt(2, p.getCategoria());
-            pst.setBigDecimal(3, p.getPreco());
-            pst.setString(4, p.getFabricante());
-            pst.setInt(5, p.getEstoque());
-            pst.setString(6, p.getModelo());
-            pst.setString(7, p.getCodBarras());
-
-            pst.execute();
-
-        } finally {
-            if (pst != null && pst.isClosed()) 
-            {
-                pst.close();
-            }
-            if (conn != null && !conn.isClosed()) 
-            {
-                conn.close();
-            }
+        
+        try{
+            conn = ConnectionUtils.getConnection(); //Realiza a conexão com o banco de dados
+            pst = conn.prepareStatement(sql); //Cria o PreparedStatement para que seja possível definir os parâmetros do INSERT
+            
+            //Preparando todos os parâmetros do método INSERT na ordem em que foram definidos na query
+            pst.setString(1, p.getNome());
+            pst.setBigDecimal(2, p.getPreco());
+            pst.setString(3, p.getFabricante());
+            pst.setInt(4, p.getQuantidade());
+            pst.setString(5, p.getModelo());
+            pst.setString(6, p.getCodBarras());
+            pst.setLong(7, p.getFilial().getId());
+            
+            pst.execute(); //Executando a query e realizando a inserção no banco de dados.
+        }
+        finally{
+            if(pst != null && !pst.isClosed())
+                pst.close(); //Caso o preparedStatement não esteja nullo e nem fechado, estamos fechando agora no final.
+            
+            if(conn != null && !conn.isClosed())
+                conn.close(); //Mesma coisa para a conexão
         }
     }
-
-    public static void alterar(Produto p) throws SQLException, ClassNotFoundException 
-    {
-        String sql = "UPDATE produto SET nomeProduto = ?, categoria =? ,preco = ?, fabricante = ? , estoque = ?, modelo = ?, codBarras = ? WHERE idProduto = ?;";
-
+    
+    public static void alterar(Produto p) throws SQLException, ClassNotFoundException{
+        String sql = "UPDATE produto SET nome = ?, preco = ?, fabricante = ?, estoque = ?, modelo = ?, codigodebarras = ?, idFilial = ? WHERE idProduto = ?";
+        
         Connection conn = null;
         PreparedStatement pst = null;
-
-        try 
-        {
-            conn = ConnectionUtils.getConnection();
-            pst = conn.prepareStatement(sql);
-
-            pst.setString(1, p.getNomeProduto());
-            pst.setInt(2, p.getCategoria());
-            pst.setBigDecimal(3, p.getPreco());
-            pst.setString(4, p.getFabricante());
-            pst.setInt(5, p.getEstoque());
-            pst.setString(6, p.getModelo());
-            pst.setString(7, p.getCodBarras());
+        
+        try{
+            conn = ConnectionUtils.getConnection(); //Abrindo conexão com o banco de dados
+            pst = conn.prepareStatement(sql); //Cria o PreparedStatement para que seja possível definir os parâmetros do UPDATE
+            
+            //Preparando todos os parâmetros do comando UPDATE definido anteriormente
+            //Preparando todos os parâmetros do método INSERT na ordem em que foram definidos na query
+            pst.setString(1, p.getNome());
+            pst.setBigDecimal(2, p.getPreco());
+            pst.setString(3, p.getFabricante());
+            pst.setInt(4, p.getQuantidade());
+            pst.setString(5, p.getModelo());
+            pst.setString(6, p.getCodBarras());
+            pst.setInt(7, p.getFilial().getId());
             pst.setInt(8, p.getIdProduto());
-
-            pst.execute();
-        } finally 
-        {
-            if (pst != null && pst.isClosed()) 
-            {
-                pst.close();
-            }
-            if (conn != null && !conn.isClosed()) 
-            {
-                conn.close();
-            }
+            
+            pst.execute(); //Executando a instrução SQL e realizando a alteração dos dados
+        }
+        finally{
+            if(pst != null && !pst.isClosed())
+                pst.close(); //Caso o preparedStatement não esteja nullo e nem fechado, estamos fechando agora no final.
+            
+            if(conn != null && !conn.isClosed())
+                conn.close(); //Mesma coisa para a conexão
         }
     }
-
-    public static void excluir(int id) throws SQLException, ClassNotFoundException 
-    {
-        String sql = "DELETE FROM produto WHERE idProduto = ?;";
-
+    
+    public static void excluir(int id) throws SQLException, ClassNotFoundException{
+        String sql = "DELETE FROM produto WHERE idProduto = ?"; 
+        
         Connection conn = null;
         PreparedStatement pst = null;
-
-        try {
-            conn = ConnectionUtils.getConnection();
-            pst = conn.prepareStatement(sql);
-
+        
+        try{
+            conn = ConnectionUtils.getConnection(); //Abrindo conexão com o banco de dados
+            pst = conn.prepareStatement(sql); //Cria o PreparedStatement para que seja possível definir o parâmetro do DELETE
+            
+            //Preparando todos os parâmetros do comando DELETE definido anteriormente
             pst.setInt(1, id);
-
-            pst.execute();
-        } finally {
-            if (pst != null && pst.isClosed()) 
-            {
-                pst.close();
-            }
-            if (conn != null && !conn.isClosed()) 
-            {
-                conn.close();
-            }
-
+            
+            pst.execute(); //Executando a instrução SQL e realizando a alteração dos dados
+        }
+        finally{
+            if(pst != null && !pst.isClosed())
+                pst.close(); //Caso o preparedStatement não esteja nullo e nem fechado, estamos fechando agora no final.
+            
+            if(conn != null && !conn.isClosed())
+                conn.close(); //Mesma coisa para a conexão
         }
     }
-
-    public static List<Produto> listar(String filtro) throws SQLException, ClassNotFoundException 
-    {
-        String sql = "SELECT * FROM produto";
-        if (filtro.length() > 0) {
-            sql = sql + "WHERE " + filtro;
-        }
+    
+    public static List<Produto> listar(String filtro) throws SQLException{
+        
+        String sql = "SELECT * FROM produto ";
+                if(filtro.length() > 0)
+                {sql = sql +"WHERE " + filtro;}
+        
         Connection conn = null;
         PreparedStatement pst = null;
-
-        List<Produto> listaProduto = new LinkedList<Produto>();
-
-        try 
-        {
+        
+        List<Produto> listaProduto = new LinkedList<Produto>(); //Lista de cliente que será retornada ao final do método
+        
+        try{
             conn = ConnectionUtils.getConnection();
             pst = conn.prepareStatement(sql);
-
-            ResultSet rs = pst.executeQuery();
-
-            while (rs.next()) 
-            {
-                Produto p = new Produto();
-
+            
+            ResultSet rs = pst.executeQuery(); //Executando o comando SELECT e armazenando os dados em um ResultSet
+            
+            while(rs.next()){ 
+               Produto p = new Produto();
+                
                 p.setIdProduto(rs.getInt("idProduto"));
-                p.setNomeProduto(rs.getString("nomeProduto"));
-                p.setCategoria(rs.getInt("categoria"));
-                p.setPreco(rs.getBigDecimal("preco"));
+                p.setCodBarras(rs.getString("codigodebarras"));
                 p.setFabricante(rs.getString("fabricante"));
-                p.setEstoque(rs.getInt("estoque"));
                 p.setModelo(rs.getString("modelo"));
-                p.setCodBarras(rs.getString("codBarras"));
-
-                listaProduto.add(p);
+                p.setNome(rs.getString("nome"));
+                p.setPreco(rs.getBigDecimal("preco"));
+                p.setQuantidade(rs.getInt("estoque"));
+                
+                Filial f = new Filial();
+                f = FilialDAO.obterFilial(rs.getInt("idFilial"));
+                p.setFilial(f);
+                
+                listaProduto.add(p); //Com todos os dados do cliente armazenado, adiciona o cliente na lista.
             }
-            return listaProduto;
-        } catch (Exception e) 
-        {
+            
+            return listaProduto; //Depois que todos os clientes estiverem na lista, retorna a lista
+        }
+        catch(Exception ex){
             return null;
-        } finally {
-            if (pst != null && pst.isClosed()) 
-            {
+        }
+        finally{
+            if(pst != null && !pst.isClosed())
                 pst.close();
-            }
-            if (conn != null && !conn.isClosed()) 
-            {
+            
+            if(conn != null && !conn.isClosed())
                 conn.close();
-            }
-
-        } 
-    }    
-    /**
-     *
-     * @param id
-     * @return
-     * @throws SQLException
-     */
-    public static Produto obterProduto(int id)throws SQLException
-    {
-        String sql = "SELECT * FROM produto WHERE idProduto= ?  ";
-
+        }
+    }
+    
+    public static Produto obterProduto(int id) throws SQLException{
+        String sql = "SELECT * FROM produto WHERE idProduto = ?";
+        
         Connection conn = null;
         PreparedStatement pst = null;
-
-        try 
-        {
+        
+        try{
             conn = ConnectionUtils.getConnection();
             pst = conn.prepareStatement(sql);
-
+            
             pst.setInt(1, id);
-
+            
             ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) 
-            {
+            
+            if(rs.next()){
                 Produto p = new Produto();
-
+                
                 p.setIdProduto(rs.getInt("idProduto"));
-                p.setCodBarras(rs.getString("codBarras"));
+                p.setCodBarras(rs.getString("codigodebarras"));
                 p.setFabricante(rs.getString("fabricante"));
                 p.setModelo(rs.getString("modelo"));
-                p.setNomeProduto(rs.getString("nomeProduto"));
+                p.setNome(rs.getString("nome"));
                 p.setPreco(rs.getBigDecimal("preco"));
-                p.setEstoque(rs.getInt("estoque"));
-                p.setCategoria(rs.getInt("categoria"));
-
-//                Filial f = new Filial();
-//                f = FilialDAO.obterFilial(rs.getInt("idFilial"));
-//                p.setFilial(f);
-
+                p.setQuantidade(rs.getInt("estoque"));
+                
+                Filial f = new Filial();
+                f = FilialDAO.obterFilial(rs.getInt("idFilial"));
+                p.setFilial(f);
+                
                 return p;
             }
-        } 
-        catch (Exception e) 
-        {
-            e.printStackTrace();
-            return null;
-        } 
-        finally 
-        {
-            if (pst != null && !pst.isClosed()) 
-            {
-                pst.close();
-            }
-
-            if (conn != null && !conn.isClosed()) 
-            {
-                conn.close();
-            }
         }
-
+        catch(Exception ex){
+            return null;
+        }
+        finally{
+            if(pst != null && !pst.isClosed())
+                pst.close();
+            
+            if(conn != null && !conn.isClosed())
+                conn.close();
+        }
         return null;
     }
-
+    
 }

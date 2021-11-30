@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28 de nov de 2021, 15:35:18
+    Author     : macba
+*/
+
+.box-bg{
+	background-color: #000;
+	border: 1px solid black;
+	opacity: 0.9;
+        padding: 100px;
+}
+
+.menu-container{
+	border: 0px solid #fff;
+	padding: 20px 80px;
+	margin-top: 10vh;
+	-webkit-box-shadow: 2px 4px 18px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 4px 18px -2px rgba(0,0,0,0.75);
+	box-shadow: 2px 4px 18px -2px rgba(0,0,0,0.75);
+	border-radius: 3px;
+	margin-left: 10%;
+	margin-right: 20%
+	
+}

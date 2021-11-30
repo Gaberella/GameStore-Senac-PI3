@@ -28,7 +28,7 @@ public class ConnectionUtils
         Connection connection = null;
         
         
-        String dbURL = "jdbc:mysql://root@localhost:3306/gamestore";
+        String dbURL = "jdbc:mysql://root@localhost:3306/gamestoreteste";
         
         Class.forName("com.mysql.cj.jdbc.Driver");
         

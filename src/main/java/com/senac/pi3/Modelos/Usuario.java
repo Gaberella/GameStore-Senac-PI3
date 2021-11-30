@@ -7,15 +7,54 @@ package com.senac.pi3.Modelos;
 import java.util.Date;
 
 
-public class Usuario extends Cliente
+import java.util.Date;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class Usuario 
 {
-    public Usuario()
-    {
+   private int id;
+    private String nome;
+    private Date dtNascimento;
+    private String cpf;
+    private String rg;
+    private String telefone;
+    private String email;
+    private String endereco;
+    private String senha;
+    private Filial filial;
+    
+    /**
+     * tipoAcesso = 1 -> Acesso de Cliente
+     * tipoAcesso = 2 -> Acesso de Funcionário de filial
+     * tipoAcesso = 3 -> Acesso de Funcionário Gerente de filial
+     * tipoAcesso = 4 -> Acesso de Funcionário Gerente Regional
+     * tipoAcesso = 5 -> Acesso de Funcionário TI
+     * tipoAcesso = 6 -> Acesso de Funcionário Backoffice
+     * tipoAcesso = 7 -> Acesso de Funcionário RH
+     */
+    private int tipoAcesso;
+    private char sexo;
+    
+    public Usuario() {
         
     }
-     public Usuario(int id, String nome, Date dataNascimento, String cpf, String rg, char sexo, String telefone, String email, String endereco, String senha)
-    {
-         super(id, nome, dataNascimento, cpf, rg, sexo, telefone,email,endereco,senha);
+    
+    public Usuario(int id, String nome, Date dtNascimento, String cpf, String rg, String telefone, String email, String endereco, String senha, int tipoAcesso, char sexo, Filial filial) {
+        this.id = id;
+        this.nome = nome;
+        this.dtNascimento = dtNascimento;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.telefone = telefone;
+        this.email = email;
+        this.endereco = endereco;
+        this.senha = senha;
+        this.tipoAcesso = tipoAcesso;
+        this.sexo = sexo;
+        this.filial = filial;
     }
 }
 
