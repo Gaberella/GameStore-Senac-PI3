@@ -10,7 +10,9 @@ package com.senac.pi3.DAOs;
  * @author Gabri
  */
 import com.senac.pi3.Modelos.Cliente;
+import com.senac.pi3.Modelos.Filial;
 import com.senac.pi3.Modelos.Funcionario;
+//import com.senac.pi3.Modelos.Funcionario;
 import com.senac.pi3.Utils.ConnectionUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +27,7 @@ public class ClienteDAO
 {
     public static void inserir(Cliente c) throws SQLException, Exception
     {
-        String sql = "INSERT INTO cliente(nome, cpf, dataNascimento, telefone, email, sexo, rg, endereco, senha)" + " VALUES(?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO cliente(nome, cpf, dataNascimento, telefone, email, sexo, rg, endereco, senha,idFilial)" + " VALUES(?,?,?,?,?,?,?,?,?,?);";
         
         Connection conn = null;
         // conexão com o banco de dados
@@ -50,6 +52,7 @@ public class ClienteDAO
             pst.setString(7, c.getRg());
             pst.setString(8, c.getEndereco());
             pst.setString(9, c.getSenha());
+            pst.setInt(10, c.getFilial().getId());
             
             pst.execute();
             
@@ -71,7 +74,7 @@ public class ClienteDAO
     
     public static void alterar(Cliente c) throws SQLException, ClassNotFoundException
     {
-        String sql = "UPDATE cliente SET cpf = ?, nome = ?, dataNascimento = ?, sexo = ?, rg = ?, email = ? , endereco = ? , senha = ? WHERE id_cliente = ?";
+        String sql = "UPDATE cliente SET cpf = ?, nome = ?, dataNascimento = ?, sexo = ?, rg = ?, email = ? , endereco = ? , senha = ?, idFilial = ? WHERE id_cliente = ?";
         
         Connection conn = null;
         PreparedStatement pst = null;
@@ -96,6 +99,7 @@ public class ClienteDAO
             pst.setString(7, c.getEndereco());
             pst.setString(8, c.getSenha());
             pst.setInt(9, c.getId());
+            pst.setInt(10, c.getFilial().getId());
             
             pst.execute();
 
@@ -191,6 +195,9 @@ public class ClienteDAO
                 c.setEndereco(rs.getString("endereco"));
                 c.setSenha(rs.getString("senha"));
                 
+                Filial f = new Filial();
+                f = FilialDAO.obterFilial(rs.getInt("idFilial"));
+                c.setFilial(f);
                 listaCliente.add(c);
             }
             return listaCliente;
@@ -246,6 +253,11 @@ public class ClienteDAO
                 c.setEndereco(rs.getString("endereco"));
                 c.setSenha(rs.getString("senha"));
                 
+                
+                Filial f = new Filial();
+                f = FilialDAO.obterFilial(rs.getInt("idFilial"));
+                c.setFilial(f);
+      
                 return c;
             }
             
@@ -302,6 +314,10 @@ public class ClienteDAO
                 c.setEndereco(rs.getString("endereco"));
                 c.setSenha(rs.getString("senha"));
                 
+                Filial f = new Filial();
+                f = FilialDAO.obterFilial(rs.getInt("idFilial"));
+                c.setFilial(f);
+             
                 return c;
             }
             

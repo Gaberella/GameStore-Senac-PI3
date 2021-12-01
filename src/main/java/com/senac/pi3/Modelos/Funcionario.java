@@ -13,9 +13,12 @@ public class Funcionario extends Cliente
     {
         
     }
-    public Funcionario(int id, String nome, Date dataNascimento, String cpf, String rg, char sexo, String telefone, String email, String endereco, String senha)
+    
+    public Funcionario(int id, String nome, Date dataNascimento, String cpf, String rg, char sexo, String telefone, String email, String endereco, String senha,Filial filial)
     {
-         super(id, nome, dataNascimento, cpf, rg, sexo, telefone,email,endereco,senha);
+         super(id, nome, dataNascimento, cpf, rg, sexo, telefone,email,endereco,senha,filial);
     }
+    
 }
+
 

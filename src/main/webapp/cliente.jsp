@@ -79,6 +79,17 @@
                                 <input type="text" class="form-control" id="telefone" name="telefone" value="${cliente.telefone}">
                             </div>
                             
+                            <div class="form-group col-md-3">
+                                <label for="telefone">Filial</label>
+                                <select id="inputState" class="form-control" name="filial">
+                                    <option selected>Selecione...</option>
+                                    <option value="1" <c:if test="${cliente.getFilial().getId() == 1}">selected</c:if>>São Paulo</option>
+                                    <option value="2" <c:if test="${cliente.getFilial().getId() == 2}">selected</c:if>>Campina Grande</option>
+                                    <option value="3" <c:if test="${cliente.getFilial().getId() == 3}">selected</c:if>>Brasília</option>
+                                    <option value="4" <c:if test="${cliente.getFilial().getId() == 4}">selected</c:if>>Joinville</option>
+                                </select>
+                            </div>
+                                
                             <div class="form-group col-md-6">
                                 <label for="endereco">Endereço</label>
                                 <input type="text" class="form-control" id="endereco" name="endereco" value="${cliente.endereco}">
@@ -127,7 +138,7 @@
                                 <th scope="col">Telefone</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Endereço</th>
-<!--                                <th scope="col">Filial</th>-->
+                                <th scope="col">Filial</th>
                                 <th scope="col">Editar</th>
                                 <th scope="col">Excluir</th>
                             </tr>
@@ -141,6 +152,7 @@
                                     <td><c:out value="${c.rg}" /></td>
                                     <td><c:out value="${c.dataNascimento}" /></td>
                                     <td><c:out value="${c.telefone}" /></td>
+                                    <td><c:out value="${c.getFilial().getCidade()}" /></td>
                                     <td><c:out value="${c.email}" /></td>
                                     <td><c:out value="${c.endereco}" /></td>
 

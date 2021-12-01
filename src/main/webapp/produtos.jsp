@@ -109,7 +109,7 @@
                                 <th scope="col">Modelo</th>
                                 <th scope="col">Preço</th>
                                 <th scope="col">Estoque</th>
-<!--                                <th scope="col">Filial</th>-->
+                                <th scope="col">Filial</th>
                                 <th scope="col">Editar</th>
                                 <th scope="col">Excluir</th>
                             </tr>
@@ -122,6 +122,7 @@
                                     <td><c:out value="${prod.modelo}" /></td>
                                     <td><c:out value="${prod.preco}" /></td>
                                     <td><c:out value="${prod.estoque}" /></td>
+                                    <td><c:out value="${prod.getFilial().getCidade()}" /></td>
                                     <td><a href="${pageContext.request.contextPath}/AlterarProdutoServlet?id=${prod.idProduto}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
                                     <td><a href="${pageContext.request.contextPath}/ExcluirProdutoServlet?id=${prod.idProduto}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
                                 </tr>

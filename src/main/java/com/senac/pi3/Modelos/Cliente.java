@@ -24,7 +24,17 @@ public class Cliente
     private String endereco;
     private String senha;
     private char sexo;
-    //private Filial filial;
+    private Filial filial;
+    
+    
+    public Filial getFilial() 
+    {
+        return filial;
+    }
+    public void setFilial(Filial filal) 
+    {
+        this.filial = filial;
+    }
     
     /**
      * tipoAcesso = 1 -> Acesso de Cliente
@@ -37,11 +47,13 @@ public class Cliente
      */
     private int tipoAcesso; 
 
-    public int getTipoAcesso() {
+    public int getTipoAcesso()
+    {
         return tipoAcesso;
     }
 
-    public void setTipoAcesso(int tipoAcesso) {
+    public void setTipoAcesso(int tipoAcesso) 
+    {
         this.tipoAcesso = tipoAcesso;
     }
    
@@ -60,7 +72,7 @@ public class Cliente
      */
     
   
-    public Cliente(int id, String nome, Date dataNascimento, String cpf,String rg, char sexo, String telefone, String email, String endereco, String senha)
+    public Cliente(int id, String nome, Date dataNascimento, String cpf,String rg, char sexo, String telefone, String email, String endereco, String senha, Filial filial)
    {
         this.id = id;
         this.nome = nome;
@@ -72,7 +84,7 @@ public class Cliente
         this.email = email;
         this.endereco = endereco;
         this.senha = senha; 
-        
+        this.filial = filial;
    }
 
     public Cliente() 

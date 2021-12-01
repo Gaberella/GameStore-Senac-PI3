@@ -21,14 +21,25 @@ public class Produto
     private int estoque;
     private String modelo;
     private String codBarras;
-    //private Filial filal;
+    private Filial filial;
+
+
+    public Filial getFilial() 
+    {
+        return filial;
+    }
+    public void setFilial(Filial filal) 
+    {
+        this.filial = filal;
+    }
+    
     
     public Produto()
     {
         
     }
    
-    public Produto(String nomeProduto, int categoria,BigDecimal preco, String fabricante, int estoque, String modelo, String codBarras)
+    public Produto(String nomeProduto, int categoria,BigDecimal preco, String fabricante, int estoque, String modelo, String codBarras, Filial filial)
     {
         this.nomeProduto = nomeProduto;
         this.categoria = categoria;
