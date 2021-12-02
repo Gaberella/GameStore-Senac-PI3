@@ -9,6 +9,7 @@ Name of Group members:
 - Guilherme Rodrigues Faria de Andrade
 - Marcos Alexandre Barbosa
 - Thiago Pena
+- Matheus Fracarolli
 
 Segment where the customer operates:
 - Gamer e Technology Departments
