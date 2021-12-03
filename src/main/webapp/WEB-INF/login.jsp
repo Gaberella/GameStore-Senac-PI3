@@ -26,30 +26,32 @@
             <!-- largura do box -->
             <div class="col-md-5">
                 
-              <!-- form start -->   
-              <form class="form-container box-bg" method="post">
-                <!-- logo -->
-                <div class="logo">
-                    <img src="assets/images/logo.png">
+                <!-- form start -->   
+                <form class="form-container box-bg" method="post">
+                      <!-- logo -->
+                      <div class="logo">
+                          <img src="assets/images/logo.png">
+                      </div>
+                      <div class="text">
+                        <h1 class="text">Login Usuário</h1>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email </label>
+                        <input type="email" class="form-control patas" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Insira o email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Senha</label>
+                        <input type="password" id="exampleInputPassword1" name="senha" placeholder="Senha">
+                      </div>
+
+                      <div class="col-md-12">
+                        <button type="submit" class="btn btn-dark btn-lg btn-block">Entrar</button>
+                        <button type="submit" class="btn btn-dark btn-lg btn-block">
+                            <a href="index.html" class="link-voltar">Voltar</a>
+                        </button>
+                      </div>
+                </form>
                 </div>
-                  <div class="text">
-                    <h1 class="text">Login Colaborador</h1>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Email </label>
-                    <input type="email" class="form-control patas" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Insira o email">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Senha</label>
-                    <input type="password" class="form-control patas" id="exampleInputPassword1" name="senha" placeholder="Senha">
-                  </div>
-                  
-                  <div class="col-md-12">
-                    <button type="submit" class="btn btn-dark btn-lg btn-block">Entrar</button>
-                  </div>
-                  
-              </form>
-            </div>
 
               <!-- form end -->
             <div class="col-md4 col-sm-4 col-xs-12"></div>

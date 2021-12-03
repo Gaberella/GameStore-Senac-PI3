@@ -6,8 +6,12 @@
 package com.senac.pi3.Servlets;
 
 import com.senac.pi3.BLL.VendaBLL;
+import com.senac.pi3.DAOs.RelatorioDAO;
+import com.senac.pi3.Modelos.Relatorio;
+import com.senac.pi3.Modelos.Usuario;
 import com.senac.pi3.Modelos.Venda;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,28 +37,38 @@ public class ListaVendaServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
     {
-       //Quando o usuário clicar no link "Listagem", o processamento será enviado para o método doGet da classe ListaClienteServlet (esta classe)
-        //Sendo assim, a flag 'manutencao' é criada e atribuida o valor TRUE para que a página cliente.jsp saiba que deve ser montado a tabela de listagem
-        //ao invés de montar o formulário para inserção de dados
-        boolean manutencao = true;
-        
-        List<Venda> vendas = null; //É criado uma lista de clientes para que sejam exibidos na página cliente.jsp
-        try{
-            vendas = VendaBLL.listar(); //É chamado o método listar que irá montar a lista com os clientes já existentes
+       int filtro = 7;
+        if(request.getParameter("filtro") != null) {
+            filtro = Integer.parseInt(request.getParameter("filtro").toString());
         }
-        catch(Exception ex){
+        
+        request.setAttribute("filtro", filtro);
+        
+        // Verifica se usuario ja esta logado
+        HttpSession sessao = request.getSession();
+        if (sessao.getAttribute("usuario") == null) {
+            // Redirecionar para tela de login
+            response.sendRedirect(request.getContextPath() + "/LoginServlet");
+            return;
+        }
+        
+        Usuario usuariologado = null;
+        usuariologado = (Usuario) sessao.getAttribute("usuario");
+        
+        
+        List<Relatorio> relatorio = null; 
+        try{
+            relatorio = RelatorioDAO.listar(filtro, usuariologado.getTipoAcesso(), usuariologado.getFilial().getId()); 
+        }
+        catch(ClassNotFoundException | SQLException ex){
             ex.printStackTrace();
         }
         
-        //Para que a página cliente.jsp saiba o que deve ser montado e como deve ser montado,
-        //estamos enviando como atributo a flag manutencao (irá fazer com que seja montado a listagem dos clientes)
-        //e a lista de clientes que servirá para o forEach montar a tabela com todos os clientes cadastrados
-        request.setAttribute("manutencao", manutencao);
-        request.setAttribute("vendas", vendas);
+        request.setAttribute("relatorio", relatorio);
         
-        //Após isso, chamamos novamente a página cliente.jsp para que seja feita a apresentação da página correta ao usuário
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/vendas.jsp");
         dispatcher.forward(request, response);
+
     }
 
 

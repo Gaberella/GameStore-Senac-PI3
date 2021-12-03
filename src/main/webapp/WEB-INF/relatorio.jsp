@@ -20,20 +20,6 @@
                     <nav class="navbar navbar-default">
                         <div style="font-size: 20px; text-align: center;">Relatórios</div>
                     </nav>
-
-                    <!--
-                                    <div style="margin-bottom: 4px;">
-                                        <div class="form-group col-md-3"></div>
-                                        <div class="form-group col-md-6">
-                                            <button type="button" class="btn btn-secondary btn-lg" id="liberavendas"  >
-                                                <i class="fas fa-shopping-cart"></i> Vendas</button>
-                    
-                                        </div>
-                                        <div class="form-group col-md-3"></div>
-                                    </div>-->
-
-
-
                     <div id="rvendas">
                         <div class="row">
                             <div class="form-group col-md-2">

@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author macba
  */
-public class RelatoriBLL {
+public class RelatorioBLL {
     
     public static List<Relatorio> listar(int filtro, int tipoacesso, int idFilial)throws SQLException, ClassNotFoundException{
         return RelatorioDAO.listar(filtro, tipoacesso, idFilial);

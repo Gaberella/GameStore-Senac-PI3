@@ -29,6 +29,16 @@
                     </nav>
                     <div class="navbar">
                         <table class="table" id="tabelaitens">
+                            <thead>
+                                <tr>
+                                    <th>Cod.</th>
+                                    <th>Nome</th>
+                                    <th>Quantidade</th>
+                                    <th>Valor</th>
+                                    <th>Tipo</th>
+                                    <th>Adicionar</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <c:forEach items="${produtos}" var="p">
                                    <tr>
@@ -72,11 +82,23 @@
                             Finalizar venda</button>
                         <br><br>
                         <button type="button" class="btn btn-secondary btn-lg" id="exportarcadastros" style="width: 100%">
-                            Cancelar</button>
+                            <a href="VendaServlet">Cancelar</a></button>
+                            
                     </div>
                 </div>
             </div>
             <div id="pesquisa" style="display: none">
+                <div class="row">
+                    <div class="form-group col-md-2">
+
+                        <label for="inputState">Período:</label>
+                        <select id="inputState" class="form-control" onChange="window.location.href = this.options[this.selectedIndex].value">
+                            <option value="RelatoriosServlet?filtro=7" <c:if test="${filtro == 7}">selected</c:if>>Semanal</option>
+                            <option value="RelatoriosServlet?filtro=15" <c:if test="${filtro == 15}">selected</c:if>>Quinzenal</option>
+                            <option value="RelatoriosServlet?filtro=30" <c:if test="${filtro == 30}">selected</c:if>>Mensal</option>
+                        </select>
+                    </div> 
+                </div>
                 <table class="table" id="tabelaservicos">
                     <thead>
                         <tr>
@@ -100,11 +122,6 @@
                     </tbody>
                 </table>
             </div>
-            <div style="margin-bottom: 15px;">
-<!--             <button type="button" class="btn btn-secondary btn-lg" id="liberacadastro">Cadastro</button>-->
-             <button type="button" class="btn btn-secondary btn-lg" id="liberapesquisa">Listar</button>
-            </div>
-        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -243,6 +260,11 @@
         $("#liberapesquisa").on("click", function () {
             $("#cadastro").hide();
             $("#pesquisa").show();
+            var content = [['Cod. Pedido', 'Cliente', 'Funcionario', 'Filial', 'Data', 'Valor venda']];
+
+            <c:forEach items="${relatorio}" var="r">
+                content.push(['${r.idPedido}', '${r.cliente.nome}', '${r.funcionario.nome}', '${r.idFilial}', '${r.data}', '${r.precovenda}']);
+            </c:forEach>
         });
 
         function excluir(elemento, idproduto) {

@@ -11,7 +11,7 @@
 
 .form-container{
 	border: 0px solid #fff;
-	padding: 20px 80px;
+	padding: 80px 80px;
 	margin-top: 10vh;
 	-webkit-box-shadow: 2px 4px 18px -2px rgba(0,0,0,0.75);
 	-moz-box-shadow: 2px 4px 18px -2px rgba(0,0,0,0.75);
@@ -25,6 +25,7 @@
 input{
 	box-shadow: 0 0 6px #000000;
 	margin: 8px;
+        display: block;
 }
 
 button{
@@ -48,6 +49,13 @@ button{
 	margin: 8px;
 	left: 220px;
 	color: #000000;
+}
+
+.link-voltar{
+	position: relative;
+	margin: 8px;
+	left: 0px;
+	color: #f8f9fa;
 }
 
 .text{

@@ -16,6 +16,15 @@
                             </a>
                         </li>
                     </c:if>
+                        
+                    <c:if test="${sessionScope.usuario.tipoAcesso == 1}">
+                        <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("vendas.jsp")){%> class="active" <%}%> >
+                            <a href="VendaServlet">
+                                <i class="glyphicon glyphicon-shopping-cart"></i>
+                                Comprar
+                            </a>
+                        </li>
+                    </c:if>    
 
                     <c:if test="${sessionScope.usuario.tipoAcesso == 3 || sessionScope.usuario.tipoAcesso == 4 || sessionScope.usuario.tipoAcesso == 6 || sessionScope.usuario.tipoAcesso == 5}">
                         <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("produtos.jsp")){%> class="active" <%}%> >
@@ -44,34 +53,6 @@
                         </li>
                    </c:if>
                         
-<!--                    <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("vendas.jsp")){%> class="active" <%}%> >
-                        <a href="VendaServlet">
-                            <i class="glyphicon glyphicon-exclamation-sign"></i>
-                            Vender
-                        </a>
-                    </li>     
-                        
-                    <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("cliente.jsp")){%> class="active" <%}%> >
-                        <a href="ClienteServlet">
-                            <i class="glyphicon glyphicon-exclamation-sign"></i>
-                            Clientes
-                        </a>
-                    </li>     
-                        
-                    <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("produtos.jsp")){%> class="active" <%}%> >
-                        <a href="ProdutoServlet">
-                            <i class="glyphicon glyphicon-exclamation-sign"></i>
-                            Produtos
-                        </a>
-                    </li>
-                    
-                    <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("relatorio.jsp")){%> class="active" <%}%> >
-                        <a href="RelatoriosServlet">
-                            <i class="glyphicon glyphicon-exclamation-sign"></i>
-                            Relatorios
-                        </a>
-                    </li> -->
-                    
                      <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("sobreEmpresa.jsp")){%> class="active" <%}%> >
                         <a href="SobreEmpresaServlet">
                             <i class="glyphicon glyphicon-exclamation-sign"></i>
