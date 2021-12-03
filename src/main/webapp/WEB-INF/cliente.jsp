@@ -23,8 +23,13 @@
                     <div style="font-size: 20px; text-align: center;">Gerenciar Usuários</div>
                 </nav>
                 <div style="margin-bottom: 15px;">
-                    <button type="button" class="btn btn-secondary btn-lg" id="liberacadastro">Cadastro</button>
-                    <button type="button" class="btn btn-secondary btn-lg" id="liberapesquisa">Listar</button>
+                    <c:if test="${sessionScope.usuario.tipoAcesso == null}">
+                        <button type="button" class="btn btn-secondary btn-lg" id="liberacadastro">Cadastro</button>
+                    </c:if>
+                    <c:if test="${sessionScope.usuario.tipoAcesso != null}">
+                        <button type="button" class="btn btn-secondary btn-lg" id="liberacadastro">Cadastro</button>
+                        <button type="button" class="btn btn-secondary btn-lg" id="liberapesquisa">Listar</button>
+                    </c:if>
                 </div>
                 <div id="cadastro">
                     <form action="

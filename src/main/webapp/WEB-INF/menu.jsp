@@ -1,71 +1,83 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <nav id="sidebar">
-                <div class="sidebar-header">
-                    <img src="assets/images/logo.png">
-                    <strong></strong>
-                </div>
+    <div class="sidebar-header">
+        <img src="assets/images/logo.png">
+        <strong></strong>
+    </div>
 
-                <ul class="list-unstyled components">
-                    <p style="text-align: center; color: white">${sessionScope.usuario.nome}</p>
-                    
-                    <c:if test="${sessionScope.usuario.tipoAcesso >= 2 && sessionScope.usuario.tipoAcesso <= 4}">
-                        <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("vendas.jsp")){%> class="active" <%}%> >
-                            <a href="VendaServlet">
-                                <i class="glyphicon glyphicon-shopping-cart"></i>
-                                Vender
-                            </a>
-                        </li>
-                    </c:if>
-                        
-                    <c:if test="${sessionScope.usuario.tipoAcesso == 1}">
-                        <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("vendas.jsp")){%> class="active" <%}%> >
-                            <a href="VendaServlet">
-                                <i class="glyphicon glyphicon-shopping-cart"></i>
-                                Comprar
-                            </a>
-                        </li>
-                    </c:if>    
+    <ul class="list-unstyled components">
+        <p style="text-align: center; color: white">${sessionScope.usuario.nome}</p>
 
-                    <c:if test="${sessionScope.usuario.tipoAcesso == 3 || sessionScope.usuario.tipoAcesso == 4 || sessionScope.usuario.tipoAcesso == 6 || sessionScope.usuario.tipoAcesso == 5}">
-                        <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("produtos.jsp")){%> class="active" <%}%> >
-                            <a href="ProdutoServlet">
-                                <i class="glyphicon glyphicon-heart"></i>
-                                Produtos
-                            </a>
-                        </li>
-                    </c:if>
-                       
-                    <c:if test="${(sessionScope.usuario.tipoAcesso >= 2 && sessionScope.usuario.tipoAcesso <= 5)}">
-                        <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("cliente.jsp")){%> class="active" <%}%> >
-                            <a href="ClienteServlet">
-                                <i class="glyphicon glyphicon-user"></i>
-                                Usu·rios 
-                            </a>
-                        </li>
-                    </c:if>
-                    
-                   <c:if test="${sessionScope.usuario.tipoAcesso > 2}">
-                        <li>
-                            <a href="RelatoriosServlet">
-                                <i class="glyphicon glyphicon-stats"></i>
-                                RelatÛrios
-                            </a>
-                        </li>
-                   </c:if>
-                        
-                     <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("sobreEmpresa.jsp")){%> class="active" <%}%> >
-                        <a href="SobreEmpresaServlet">
-                            <i class="glyphicon glyphicon-exclamation-sign"></i>
-                            Sobre a empresa
-                        </a>
-                    </li>
+        <c:if test="${sessionScope.usuario.tipoAcesso >= 2 && sessionScope.usuario.tipoAcesso <= 4}">
+            <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("vendas.jsp")){%> class="active" <%}%> >
+                <a href="VendaServlet">
+                    <i class="glyphicon glyphicon-shopping-cart"></i>
+                    Vender
+                </a>
+            </li>
+        </c:if>
 
-                    <li>
-                        <a href="LogoutServlet">
-                            <i class="glyphicon glyphicon-off"></i>
-                            Sair
-                        </a>
-                    </li>
-                    
-                </ul>
-            </nav>
+        <c:if test="${sessionScope.usuario.tipoAcesso == 1}">
+            <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("vendas.jsp")){%> class="active" <%}%> >
+                <a href="VendaServlet">
+                    <i class="glyphicon glyphicon-shopping-cart"></i>
+                    Comprar
+                </a>
+            </li>
+        </c:if>    
+
+        <c:if test="${sessionScope.usuario.tipoAcesso == 3 || sessionScope.usuario.tipoAcesso == 4 || sessionScope.usuario.tipoAcesso == 6 || sessionScope.usuario.tipoAcesso == 5}">
+            <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("produtos.jsp")){%> class="active" <%}%> >
+                <a href="ProdutoServlet">
+                    <i class="glyphicon glyphicon-heart"></i>
+                    Produtos
+                </a>
+            </li>
+        </c:if>
+
+        <c:if test="${(sessionScope.usuario.tipoAcesso >= 2 && sessionScope.usuario.tipoAcesso <= 5)}">
+            <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("cliente.jsp")){%> class="active" <%}%> >
+                <a href="ClienteServlet">
+                    <i class="glyphicon glyphicon-user"></i>
+                    Usu√°rios 
+                </a>
+            </li>
+        </c:if>
+
+       <c:if test="${sessionScope.usuario.tipoAcesso > 2}">
+            <li>
+                <a href="RelatoriosServlet">
+                    <i class="glyphicon glyphicon-stats"></i>
+                    Relat√≥rios
+                </a>
+            </li>
+       </c:if>
+
+         <li <% if( request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1).equals("sobreEmpresa.jsp")){%> class="active" <%}%> >
+            <a href="SobreEmpresaServlet">
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                Sobre a empresa
+            </a>
+        </li>
+              
+        <c:choose>
+            <c:when test="${sessionScope.usuario.tipoAcesso == null}">
+                <li>
+                    <a href="LogoutServlet">
+                        <i class="glyphicon glyphicon-off"></i>
+                        Voltar
+                    </a>
+                </li>
+            </c:when>
+            <c:otherwise>
+                <li>
+                    <a href="LogoutServlet">
+                        <i class="glyphicon glyphicon-off"></i>
+                        Sair
+                    </a>
+                </li>
+            </c:otherwise>
+        </c:choose>
+    </ul>
+</nav>
